@@ -35,10 +35,11 @@
                    )
                         <div class="card border-success">
                             <div class="card-header bg-success">
-                                <span class="text-white">{{ $card->redeemable ? 'Redeem' : 'Complete' }} Card Now</span>
+                                <span class="text-white">{{ $card->redeemable ? 'Redeem' : 'Complete' }} Card</span>
                             </div>
                             <div class="card-body">
                                 @if($card->should_upload_finished)
+                                    {{ $card->description }}<br>
                                     <form action="{{ route('cards.upload-completed', $card->id) }}" method="post" enctype="multipart/form-data" id="upload-complete-form">
                                         <div class="form-group">
                                             <label for="file">Upload your answers to complete this card</label>
