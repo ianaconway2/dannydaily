@@ -7,6 +7,7 @@ use App\CardScanLog;
 use App\JailSettings;
 use Illuminate\Http\Request;
 use Aws\Rekognition\RekognitionClient;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
