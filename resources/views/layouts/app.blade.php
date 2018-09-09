@@ -19,6 +19,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link rel="apple-touch-icon" href="{{ asset('ios.png') }}"/>
 </head>
 <body>
     <div id="app">
