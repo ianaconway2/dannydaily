@@ -35,9 +35,12 @@ Route::middleware(['auth'])->group(function(){
         $jail = \App\JailSettings::findOrFail(1);
         $jail->update(['has_get_out_card' => 0, 'used_get_out_card' => 0, 'in_jail_at' => null, 'out_of_jail_at' => null]);
 
-        \App\Card::where(['unlocked' => 1])->update(['unlocked' => 0, 'redeemed' => 0, 'completed' => 0, 'complete_redeem_results' => '', 'uploaded_image' => '', 'finished_image' => '', 'unlocked_at' => null, 'redeemed_at' => null, 'completed_at' => null]);
+//        \App\Card::where(['unlocked' => 1])->update(['unlocked' => 0, 'redeemed' => 0, 'completed' => 0, 'complete_redeem_results' => '', 'uploaded_image' => '', 'finished_image' => '', 'unlocked_at' => null, 'redeemed_at' => null, 'completed_at' => null]);
+        \App\Card::where(['unlocked' => 1])->delete();
+        \App\Card::where(['unlocked' => 0])->delete();
 
-        dd($scan_logs);
+
+        //dd($scan_logs);
 
     });
 
