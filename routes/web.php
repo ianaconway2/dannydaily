@@ -11,15 +11,6 @@
 |
 */
 
-Route::get('/clearall', function () {
-
-    $scan_logs = \App\CardScanLog::where('id', '<>', '-100')->delete();
-
-    $jail = \App\JailSettings::findOrFail(1);
-    $jail->update(['has_get_out_card' => 0, 'used_get_out_card' => 0, 'in_jail_at' => null, 'out_of_jail_at' => null]);
-
-});
-
 Route::get('/', function () {
     return redirect()->route('home');
 });
@@ -35,5 +26,17 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/cards/{id}', 'CardsController@show')->name('cards.show');
     Route::post('/cards/{id}/upload-completed', 'CardsController@uploadCompleted')->name('cards.upload-completed');
     Route::post('/cards/{id}/submit-completed', 'CardsController@submitCompleted')->name('cards.submit-completed');
+
+    Route::get('/clearall', function () {
+
+        $scan_logs = \App\CardScanLog::where('id', '<>', '-100')->get();
+        $scan_logs = \App\CardScanLog::where('id', '<>', '-100')->delete();
+
+        $jail = \App\JailSettings::findOrFail(1);
+        $jail->update(['has_get_out_card' => 0, 'used_get_out_card' => 0, 'in_jail_at' => null, 'out_of_jail_at' => null]);
+
+        dd($scan_logs);
+
+    });
 
 });
