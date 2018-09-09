@@ -14,7 +14,6 @@
 Route::get('/clearall', function () {
 
     $scan_logs = \App\CardScanLog::where('id', '<>', '-100')->delete();
-    $scan_logs->delete();
 
     $jail = \App\JailSettings::findOrFail(1);
     $jail->update(['has_get_out_card' => 0, 'used_get_out_card' => 0, 'in_jail_at' => null, 'out_of_jail_at' => null]);
