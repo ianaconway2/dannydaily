@@ -21,6 +21,17 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <link rel="apple-touch-icon" href="{{ asset('ios.png') }}"/>
+
+    <style>
+        body{
+            background-color: #ebebeb;
+        }
+
+        .card
+        {
+            box-shadow: 0 2px 3px rgba(0,0,0,.16);
+        }
+    </style>
 </head>
 <body>
     <div id="app">
