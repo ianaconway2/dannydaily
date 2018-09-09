@@ -6,7 +6,7 @@
 	<array>
 		<dict>
 			<key>FullScreen</key>
-			<false/>
+			<true/>
 			<key>Icon</key>
 			<data>
 			iVBORw0KGgoAAAANSUhEUgAAA2AAAANgCAIAAADF8JzzAAAAAXNS
@@ -2020,11 +2020,11 @@
 			<key>PayloadDisplayName</key>
 			<string>Web Clip</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.webClip.managed.15207E7F-A649-4B5C-B251-2E94C5586BB7</string>
+			<string>com.apple.webClip.managed.92F9A84F-2C5D-4E9C-8F43-F9C4CD71A5AB</string>
 			<key>PayloadType</key>
 			<string>com.apple.webClip.managed</string>
 			<key>PayloadUUID</key>
-			<string>15207E7F-A649-4B5C-B251-2E94C5586BB7</string>
+			<string>92F9A84F-2C5D-4E9C-8F43-F9C4CD71A5AB</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 			<key>Precomposed</key>
@@ -2034,15 +2034,17 @@
 		</dict>
 	</array>
 	<key>PayloadDisplayName</key>
-	<string>Untitled</string>
+	<string>The Danny Daily</string>
 	<key>PayloadIdentifier</key>
 	<string>Ians-MacBook-Pro.18475A8C-157E-4E53-A527-72E8EC45F9EF</string>
+	<key>PayloadOrganization</key>
+	<string>Ian Conway</string>
 	<key>PayloadRemovalDisallowed</key>
 	<false/>
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>7E3EEDAE-7E96-45E5-B0A2-A7A107794770</string>
+	<string>2F10A273-798C-494A-8D2C-EC2144648738</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>
