@@ -23,9 +23,9 @@
                 </div>
             @endif
 
-            <div class="alert alert-warning" role="alert">
-                {{ $remaining }} Days Remaining
-            </div>
+            {{--<div class="alert alert-warning" role="alert">--}}
+                {{--{{ $remaining }} Days Remaining--}}
+            {{--</div>--}}
 
             @if(!isset($jail->out_of_jail_at) || strtotime($jail->out_of_jail_at) < time())
 
