@@ -13,13 +13,11 @@
 
 Route::get('/clearall', function () {
 
-
-    $scan_logs = \App\CardScanLog::all();
+    $scan_logs = \App\CardScanLog::select('*')->get();
     $scan_logs->delete();
 
     $jail = \App\JailSettings::findOrFail(1);
     $jail->update(['has_get_out_card' => 0, 'used_get_out_card' => 0, 'in_jail_at' => null, 'out_of_jail_at' => null]);
-
 
 });
 
