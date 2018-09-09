@@ -88,6 +88,12 @@ class HomeController extends Controller
 
             if(count($matching_card) > 0)
             {
+                Mail::send('email', ['body' => 'Danny just unlocked a card. Card: ' . $matching_card[0]->series . ' ' . $matching_card[0]->title], function ($message) {
+                    $message->to('ianconway@protonmail.com');
+                    $message->subject('DD: Card Unlocked');
+                });
+
+
                 $matching_card[0]->unlock($request);
                 request()->session()->flash('status', 'Fuck Yeah! You just unlocked a ' . $matching_card[0]->series . ' card!');
                 return redirect()->route('cards.show', $matching_card[0]->id);

@@ -54,6 +54,11 @@ class CardsController extends Controller
 
         request()->session()->flash('status', $message);
 
+        Mail::send('email', ['body' => 'Danny just redeemed/completed a card. Card: ' . $card->series . ' ' . $card->title . ' Comments: ' . $request->input('comments')], function ($message) {
+            $message->to('ianconway@protonmail.com');
+            $message->subject('Card Completed');
+        });
+
         return redirect()->route('cards.show', $card->id);
     }
 
@@ -85,6 +90,11 @@ class CardsController extends Controller
         $card->update($update_data);
 
         request()->session()->flash('status', $message);
+
+        Mail::send('email', ['body' => 'Danny just redeemed/completed a card. Card: ' . $card->series . ' ' . $card->title . ' Comments: ' . $request->input('comments') . ' <img src="data:image/png;base64 ' . base64_encode(file_get_contents($request->file('file'))) . '">'], function ($message) {
+            $message->to('ianconway@protonmail.com');
+            $message->subject('Card Completed');
+        });
 
         return redirect()->route('cards.show', $card->id);
     }

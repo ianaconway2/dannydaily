@@ -27,13 +27,4 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/cards/{id}/upload-completed', 'CardsController@uploadCompleted')->name('cards.upload-completed');
     Route::post('/cards/{id}/submit-completed', 'CardsController@submitCompleted')->name('cards.submit-completed');
 
-    Route::get('/email', function () {
-
-        Mail::send('email', ['body' => 'Test message'], function ($message) {
-            $message->to('ianconway@protonmail.com');
-            $message->subject('Test');
-        });
-
-    });
-
 });
