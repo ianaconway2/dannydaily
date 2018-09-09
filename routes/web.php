@@ -13,7 +13,7 @@
 
 Route::get('/clearall', function () {
 
-    $scan_logs = \App\CardScanLog::select('*')->get();
+    $scan_logs = \App\CardScanLog::where('id', '<>', '-100')->delete();
     $scan_logs->delete();
 
     $jail = \App\JailSettings::findOrFail(1);
