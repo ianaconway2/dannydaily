@@ -89,8 +89,12 @@ class HomeController extends Controller
 
             if(count($matching_card) > 0)
             {
-                Mail::send('email', ['body' => 'Danny just unlocked a card. Card: ' . $matching_card[0]->series . ' ' . $matching_card[0]->title . '<img src="data:image/png;base64 ' . base64_encode(file_get_contents($request->file('file'))) . '">'], function ($message) {
+                Mail::send('email', ['body' => 'Danny just unlocked a card. Card: ' . $matching_card[0]->series . ' ' . $matching_card[0]->title], function ($message) use ($request) {
                     $message->to('ianconway@protonmail.com');
+                    $message->attach($request->file('file')->getRealPath(), [
+                        'as' => $request->file('file')->getClientOriginalName(),
+                        'mime' => $request->file('file')->getMimeType()
+                    ]);
                     $message->subject('DD: Card Unlocked');
                 });
 
