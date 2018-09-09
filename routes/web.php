@@ -29,7 +29,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/email', function () {
 
-        Mail::send('email', ['message' => 'Test message'], function ($message) {
+        Mail::send('email', ['body' => 'Test message'], function ($message) {
             $message->to('ianconway@protonmail.com');
             $message->subject('Test');
         });
