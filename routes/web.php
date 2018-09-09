@@ -27,20 +27,12 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/cards/{id}/upload-completed', 'CardsController@uploadCompleted')->name('cards.upload-completed');
     Route::post('/cards/{id}/submit-completed', 'CardsController@submitCompleted')->name('cards.submit-completed');
 
-    Route::get('/clearall', function () {
+    Route::get('/email', function () {
 
-        $scan_logs = \App\CardScanLog::where('id', '<>', '-100')->get();
-        $scan_logs = \App\CardScanLog::where('id', '<>', '-100')->delete();
-
-        $jail = \App\JailSettings::findOrFail(1);
-        $jail->update(['has_get_out_card' => 0, 'used_get_out_card' => 0, 'in_jail_at' => null, 'out_of_jail_at' => null]);
-
-//        \App\Card::where(['unlocked' => 1])->update(['unlocked' => 0, 'redeemed' => 0, 'completed' => 0, 'complete_redeem_results' => '', 'uploaded_image' => '', 'finished_image' => '', 'unlocked_at' => null, 'redeemed_at' => null, 'completed_at' => null]);
-        \App\Card::where(['unlocked' => 1])->delete();
-        \App\Card::where(['unlocked' => 0])->delete();
-
-
-        //dd($scan_logs);
+        Mail::send('email', ['message' => 'Test message'], function ($message) {
+            $message->to('ianconway@protonmail.com');
+            $message->subject('Test');
+        });
 
     });
 
